@@ -1,0 +1,84 @@
+Last login: Tue Mar  1 17:13:23 on ttys000
+/Users/helitonbruning/.bash_profile:41: no matches found: [default]
+/Users/helitonbruning/.zshrc:7: no matches found: [default]
+helitonbruning@192 ~ % cd Downloads 
+helitonbruning@192 Downloads % ssh -i "project1.pem" ec2-user@ec2-52-14-0-246.us-east-2.compute.amazonaws.com
+The authenticity of host 'ec2-52-14-0-246.us-east-2.compute.amazonaws.com (52.14.0.246)' can't be established.
+ED25519 key fingerprint is SHA256:lZLibaqJg3QlwWh7ep016gw8/djHJDmqYFNv+sC3cR0.
+This key is not known by any other names
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added 'ec2-52-14-0-246.us-east-2.compute.amazonaws.com' (ED25519) to the list of known hosts.
+
+       __|  __|_  )
+       _|  (     /   Amazon Linux 2 AMI
+      ___|\___|___|
+
+https://aws.amazon.com/amazon-linux-2/
+-bash: warning: setlocale: LC_CTYPE: cannot change locale (UTF-8): No such file or directory
+[ec2-user@ip-10-1-10-115 ~]$ sudo yum install mysql
+Failed to set locale, defaulting to C
+Loaded plugins: extras_suggestions, langpacks, priorities, update-motd
+amzn2-core                                               | 3.7 kB     00:00     
+Resolving Dependencies
+--> Running transaction check
+---> Package mariadb.x86_64 1:5.5.68-1.amzn2 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+================================================================================
+ Package        Arch          Version                   Repository         Size
+================================================================================
+Installing:
+ mariadb        x86_64        1:5.5.68-1.amzn2          amzn2-core        8.8 M
+
+Transaction Summary
+================================================================================
+Install  1 Package
+
+Total download size: 8.8 M
+Installed size: 49 M
+Is this ok [y/d/N]: y
+Downloading packages:
+mariadb-5.5.68-1.amzn2.x86_64.rpm                          | 8.8 MB   00:00     
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Installing : 1:mariadb-5.5.68-1.amzn2.x86_64                              1/1 
+  Verifying  : 1:mariadb-5.5.68-1.amzn2.x86_64                              1/1 
+
+Installed:
+  mariadb.x86_64 1:5.5.68-1.amzn2                                               
+
+Complete!
+[ec2-user@ip-10-1-10-115 ~]$ mysql -h udacity2.cl2xhbacakjh.us-east-2.rds.amazonaws.com -u admin -p udacity
+Enter password: 
+ERROR 1045 (28000): Access denied for user 'admin'@'10.1.10.115' (using password: YES)
+[ec2-user@ip-10-1-10-115 ~]$ mysql -h udacity2.cl2xhbacakjh.us-east-2.rds.amazonaws.com -u admin -p udacity
+Enter password: 
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MySQL connection id is 18
+Server version: 8.0.27 Source distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MySQL [udacity]> create table tutorials( tutorial_id INT NOT NULL AUTO_INCREMENT, tutorial_title VARCHAR(100)NOT NULL, tutorial_author VARCHAR(100) NOT NULL, PRIMARY KEY (tutorial_id) );
+Query OK, 0 rows affected (0.03 sec)
+
+MySQL [udacity]> nsert into  tutorials (tutorial_title, tutorial_author ) values ('Udacity AWS', 'Max');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'nsert into  tutorials (tutorial_title, tutorial_author ) values ('Udacity AWS', ' at line 1
+MySQL [udacity]> insert into  tutorials (tutorial_title, tutorial_author ) values ('Udacity AWS - RDS', 'Max');
+Query OK, 1 row affected (0.01 sec)
+
+MySQL [udacity]> select * from tutorials ;
++-------------+-------------------+-----------------+
+| tutorial_id | tutorial_title    | tutorial_author |
++-------------+-------------------+-----------------+
+|           1 | Udacity AWS - RDS | Max             |
++-------------+-------------------+-----------------+
+1 row in set (0.01 sec)
+
+MySQL [udacity]> 
