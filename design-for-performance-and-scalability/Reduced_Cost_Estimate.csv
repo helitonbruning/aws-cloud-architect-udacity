@@ -1,13 +1,18 @@
-Region,Service,Monthly,First 12 months total,Currency,Configuration summary
-US East (N. Virginia),Amazon EC2,318.68,3824.16,USD,"Operating system (Linux), Quantity (5), Pricing strategy (On-Demand Instances), Storage amount (30 GB), Instance type (t3.large)"
-US East (N. Virginia),Amazon EC2,365.4,4384.80,USD,"Operating system (Linux), Quantity (5), Pricing strategy (On-Demand Instances), Storage amount (30 GB), Instance type (m5.large)"
-US East (N. Virginia),Amazon RDS for PostgreSQL,2121.04,25452.48,USD,"Storage volume (General Purpose SSD (gp2)), Storage amount (200 GB per month), Nodes (1), Instance Type (db.m5.8xlarge), Deployment Option (Single-AZ), Pricing Model (OnDemand), Additional backup storage (200 GB)"
-US East (N. Virginia),S3 Standard,120.37,1444.44,USD,S3 Standard storage (1000 GB per month)
-US East (N. Virginia),Application Load Balancer,2352.43,28229.16,USD,Number of Application Load Balancers (1)
-US East (N. Virginia),Network Load Balancer,1111.43,13337.16,USD,"Number of Network Load Balancers (1), Processed bytes per NLB for TCP (250 GB per hour), Average number of new TCP connections (10000 per second), Average TCP connection duration (2 seconds)"
-US East (N. Virginia),Amazon Route 53,366.3,4395.60,USD,"Hosted Zones (1), Number of Elastic Network Interfaces (4)"
-US East (N. Virginia),Amazon Virtual Private Cloud (VPC),493.65,5923.80,USD,Number of NAT Gateways (1)
-US East (N. Virginia),Amazon CloudWatch,6.555.000.000.000.000,786.60,USD,"Number of Metrics (includes detailed and custom metrics) (10), Standard Logs: Data Ingested (100 GB), Number of Custom/Cross-account events (100000), Number of Dashboards (4)"
-US East (N. Virginia),Amazon RDS for PostgreSQL,1062.52,12750.24,USD,"Storage volume (General Purpose SSD (gp2)), Storage amount (200 GB per month), Nodes (1), Instance Type (db.m5.4xlarge), Deployment Option (Single-AZ), Pricing Model (OnDemand)"
-,,,,,
-Total,,8377.37,,USD,
+Region,Service,Upfront,Monthly,First 12 months total,Currency,Configuration summary
+US East (Ohio),Amazon EC2,0,246.64,2959.68,USD,"Operating system (Linux), Quantity (6), Storage for each EC2 instance (General Purpose SSD (gp2)), Storage amount (30 GB), Instance type (t3.large)"
+US East (Ohio),Amazon EC2,0,254.52,3054.24,USD,"Operating system (Linux), Quantity (6), Storage for each EC2 instance (General Purpose SSD (gp2)), Storage amount (30 GB), Instance type (c5.large)"
+US East (Ohio),Amazon RDS for PostgreSQL,0,1.354.593,16255.12,USD,"Quantity (1), Storage volume (General Purpose SSD (gp2)), Storage amount (100 GB per month), Instance type (db.m5.4xlarge)"
+US East (Ohio),Amazon Route 53,0,1919.25,23031,USD,"Hosted Zones (1), Basic Checks Within AWS (50), Number of Elastic Network Interfaces (5)"
+US East (Ohio),S3 Standard,0,63.05,756.6,USD,S3 Standard storage (1000 GB per month)
+US East (Ohio),Amazon Virtual Private Cloud (VPC),0,482.85,5794.2,USD,Number of NAT Gateways (1)
+US East (Ohio),Elastic Load Balancing,0,600.43,7205.16,USD,Number of Application Load Balancers (1)
+US East (Ohio),Elastic Load Balancing,0,892.43,10709.16,USD,"Number of Network Load Balancers (1), Processed bytes per NLB for TCP (100 GB per hour), Processed bytes per NLB for TLS (100 GB per hour), Average number of new TLS connections (10 per second), Average TLS connection duration (30 seconds)"
+US East (Ohio),Amazon CloudWatch,0,190.09,2281.08,USD,
+,,,,,,
+Total,,,6.003.853,,,
+,,,,,,
+,,,EC2 pricing strategy changed from on-demand to 1-year prepaid reserved instances for both web and application servers.,,,
+,,,RDS ricing strategy changed from on-demand to 1-year prepaid reserved instances,,,
+,,,Route 53 changed number of Elastic Network Instances from 10 to 5 and reduced number of basic checks,,,
+,,,Application Load Balancer - reduces number of processed GB per month (EC2 and IP),,,
+,,,Network Load Balancer - reduces number of processed GB per month (NLB for TCP),,,
